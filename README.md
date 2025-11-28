@@ -1,17 +1,16 @@
-# PublicHolidayTracker - Türkiye Resmi Tatil Takip Sistemi
+# PublicHolidayTracker
 
-Bu proje, bir C# Konsol uygulamasıdır. `nager.at` API servisini kullanarak 2023, 2024 ve 2025 yıllarına ait Türkiye resmi tatil verilerini çeker ve kullanıcıya sorgulama imkanı sunar.
+Bu proje, C# Konsol uygulaması olarak geliştirilmiştir. API üzerinden 2023, 2024 ve 2025 yıllarına ait Türkiye resmi tatil verilerini çeker ve listeler.
 
-## Proje Özellikleri ve İsterler
+## Özellikler
 
-Proje, belirtilen senaryoya uygun olarak aşağıdaki teknik gereksinimleri karşılamaktadır:
+* **Veri Çekme:** `HttpClient` kullanılarak `nager.at` adresinden veriler JSON formatında alınır.
+* **JSON İşleme:** `System.Text.Json` kütüphanesi ile veriler `Holiday` sınıfına dönüştürülür.
+* **Listeleme:** Veriler hafızaya alındıktan sonra döngüler (foreach) kullanılarak filtreleme ve listeleme yapılır.
 
-* **Veri Kaynağı:** `HttpClient` kütüphanesi kullanılarak API üzerinden JSON verisi çekilmektedir.
-* **JSON İşleme:** Çekilen veriler `System.Text.Json` ile `Holiday` sınıfına deserialize edilmektedir.
-* **Hafıza Yönetimi:** Uygulama açıldığında veriler tek seferde çekilip hafızaya (`List<Holiday>`) alınır. Daha sonraki sorgular bu liste üzerinden yapılır.
+## Sınıf Yapısı
 
-### Sınıf Yapısı
-Projede kullanılan `Holiday` sınıfı, JSON yapısına uygun olarak şu şekildedir:
+Hocanın belirttiği `Holiday` sınıfı kullanılmıştır:
 
 ```csharp
 class Holiday
@@ -20,6 +19,6 @@ class Holiday
     public string localName { get; set; }
     public string name { get; set; }
     public string countryCode { get; set; }
-    public bool fixed { get; set; }
+    public bool fixed { get; set; } // C# keyword çakışması için @fixed olarak tanımlandı
     public bool global { get; set; }
 }
