@@ -10,7 +10,7 @@ Bu proje, C# Konsol uygulaması olarak geliştirilmiştir. API üzerinden 2023, 
 
 ## Sınıf Yapısı
 
-Hocanın belirttiği `Holiday` sınıfı kullanılmıştır:
+Belirtilen `Holiday` sınıfı kullanılmıştır:
 
 ```csharp
 class Holiday
